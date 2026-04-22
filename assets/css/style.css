@@ -1,0 +1,333 @@
+/* 神山まるごと高専 紹介サイト 共通スタイル */
+
+:root {
+  --bg: #F4EFE6;          /* アイボリー */
+  --fg: #0E1A2B;          /* ダークネイビー */
+  --accent: #A56A3E;      /* 銅 */
+  --rule: rgba(14, 26, 43, .18);
+  --measure: 720px;
+  --gap-xl: 120px;
+  --gap-xl-sm: 72px;
+  --font-jp: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-en: "Cormorant Garamond", "Noto Serif JP", serif;
+}
+
+/* リセット最小限 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: .02em;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-en);
+  letter-spacing: .01em;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ヘッダー */
+.site-header {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header__brand {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  border-bottom: none;
+}
+
+.site-header__brand:hover,
+.site-header__brand:focus-visible {
+  color: var(--accent);
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: .92rem;
+  letter-spacing: .04em;
+}
+
+.site-nav a {
+  border-bottom: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.lang-switch {
+  font-size: .85rem;
+  letter-spacing: .12em;
+}
+
+.lang-switch a {
+  border-bottom: none;
+  margin-right: 4px;
+}
+
+.lang-switch a[aria-current="true"] {
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 56px 24px 32px;
+    gap: 32px;
+  }
+
+  .site-header__brand {
+    flex: 0 0 auto;
+  }
+
+  .site-nav {
+    flex: 1 1 auto;
+    margin-left: 24px;
+  }
+
+  .lang-switch {
+    flex: 0 0 auto;
+  }
+}
+
+/* メイン */
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--gap-xl-sm) 24px;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: var(--gap-xl) 24px;
+  }
+}
+
+main > * + * {
+  margin-top: var(--gap-xl-sm);
+  padding-top: var(--gap-xl-sm);
+  border-top: 1px solid var(--rule);
+}
+
+@media (min-width: 768px) {
+  main > * + * {
+    margin-top: var(--gap-xl);
+    padding-top: var(--gap-xl);
+  }
+}
+
+/* リード */
+.lead h1 {
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.lead__intro {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--fg);
+}
+
+@media (min-width: 768px) {
+  .lead h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ブロック */
+.block h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  margin: 0 0 24px;
+}
+
+.block h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  margin: 32px 0 12px;
+}
+
+.block p {
+  margin: 0 0 1.2em;
+}
+
+.block ul {
+  margin: 0 0 1.2em;
+  padding-left: 1.4em;
+}
+
+.block li + li {
+  margin-top: .4em;
+}
+
+.block dl {
+  margin: 0;
+}
+
+.block dt {
+  font-weight: 500;
+  letter-spacing: .04em;
+  margin-top: 1.2em;
+}
+
+.block dt:first-child {
+  margin-top: 0;
+}
+
+.block dd {
+  margin: .2em 0 0;
+}
+
+/* セクション内リンク一覧 */
+.section-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-links li {
+  border-top: 1px solid var(--rule);
+}
+
+.section-links li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-links a {
+  display: block;
+  padding: 20px 0;
+  border-bottom: none;
+  font-size: 1.05rem;
+  letter-spacing: .04em;
+}
+
+.section-links a small {
+  display: block;
+  font-size: .82rem;
+  margin-top: 4px;
+  color: rgba(14, 26, 43, .6);
+  letter-spacing: .02em;
+}
+
+/* 図プレースホルダー */
+.figure__placeholder {
+  border: 1px solid var(--rule);
+  background: transparent;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(14, 26, 43, .35);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  margin: 0;
+}
+
+.figure__caption {
+  font-size: .82rem;
+  color: rgba(14, 26, 43, .6);
+  margin-top: 12px;
+  letter-spacing: .04em;
+}
+
+/* フッター */
+.site-footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+  border-top: 1px solid var(--rule);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  color: rgba(14, 26, 43, .7);
+}
+
+.site-footer p {
+  margin: 0 0 .6em;
+}
+
+.site-footer a {
+  border-bottom: none;
+}
+
+/* アクセント */
+.todo {
+  color: var(--accent);
+  font-style: normal;
+  letter-spacing: .04em;
+}
+
+/* スクロールフェード */
+.fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.fade.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade,
+  .fade.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
